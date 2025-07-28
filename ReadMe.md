@@ -5,29 +5,7 @@
 - Command line/terminal access
 - All Java files saved in the same directory
 
-## Step 1: Create Project Directory Structure
-
-```bash
-mkdir SupermarketRMI
-cd SupermarketRMI
-```
-
-Save all the following Java files in this directory:
-- `SupermarketInterface.java`
-- `BankInterface.java`
-- `SupplierInterface.java`
-- `Product.java`
-- `PaymentDetails.java`
-- `Transaction.java`
-- `TransactionItem.java`
-- `Customer.java`
-- `Order.java`
-- `SupermarketServer.java`
-- `BankServer.java`
-- `SupplierServer.java`
-- `SupermarketClient.java`
-
-## Step 2: Compile All Java Files
+## Step 1: Compile All Java Files
 
 Open a terminal/command prompt in your project directory and run:
 
@@ -52,7 +30,7 @@ javac BankServer.java SupplierServer.java SupermarketServer.java
 javac SupermarketClient.java
 ```
 
-## Step 3: Start RMI Registry
+## Step 2: Start RMI Registry
 
 Open a **new terminal window** in the same directory and run the following:
 
@@ -70,7 +48,7 @@ start rmiregistry
 - You should see no output (blank window) - this is normal.
 - The registry runs on port 1099 by default
 
-## Step 4: Start the Servers
+## Step 3: Start the Servers
 
 You need **three seperate terminal windows** for the three servers. Navigate to your project directory in each.
 
@@ -170,15 +148,15 @@ You should now have 5 terminal windows open:
 
 ## Monitoring Server Activity
 
-Watch the server terminals for activity:
+Pay attention to the server terminals for activity:
 
 - **Bank Server** will show payment processing
-- **Supplier Server** will show reorder requests when stock is low
+- **Supplier Server** will show reorder requests when the stock is low
 - **Supermarket Server** will show various operations
 
 ## Stopping the System
 
-To properly shut down:
+To properly shut down down the system:
 
 1. Exit the client (option 7)
 2. Press `Ctrl+C` in each server terminal
