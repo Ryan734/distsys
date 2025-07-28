@@ -1,4 +1,4 @@
-# RMI System Setup and Running Instructions
+# Denis Pack - RMI System Setup and Running Instructions
 
 ## Prerequisites
 - Java Development Kit (JDK) 8 or higher installed
@@ -38,7 +38,7 @@ javac *.java
 If successful, you should see `.class` files generated for each `.java` file.
 
 ### Troubleshooting Compilation:
-If you get compilation errors, compile in this order:
+If you get compilation errors, compile in this order please:
 ```bash
 # First compile interfaces and data classes
 javac SupermarketInterface.java BankInterface.java SupplierInterface.java
@@ -54,7 +54,7 @@ javac SupermarketClient.java
 
 ## Step 3: Start RMI Registry
 
-Open a **new terminal window** in the same directory and run:
+Open a **new terminal window** in the same directory and run the following:
 
 ```bash
 rmiregistry
@@ -65,14 +65,14 @@ rmiregistry
 start rmiregistry
 ```
 
-**Important:** 
+**Very Important:** 
 - Keep this terminal window open - it's running the RMI registry
-- You should see no output (blank window) - this is normal
+- You should see no output (blank window) - this is normal.
 - The registry runs on port 1099 by default
 
 ## Step 4: Start the Servers
 
-You need **three separate terminal windows** for the three servers. Navigate to your project directory in each.
+You need **three seperate terminal windows** for the three servers. Navigate to your project directory in each.
 
 ### Terminal 1 - Start Bank Server:
 ```bash
@@ -85,7 +85,7 @@ Bank Server is running
 Ready to process payments...
 ```
 
-### Terminal 2 - Start Supplier Server:
+### Terminal 2 - Start Supplier Server
 ```bash
 java SupplierServer
 ```
