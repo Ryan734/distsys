@@ -261,54 +261,55 @@ public class AsyncSupermarketSystem {
         AsyncSupermarketSystem system = new AsyncSupermarketSystem();
         system.start();
         
-        // Simulate operations
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("\n--- Async System Control ---");
-            System.out.println("1. Send payment request");
-            System.out.println("2. Update stock");
-            System.out.println("3. Disconnect bank service");
-            System.out.println("4. Reconnect bank service");
-            System.out.println("5. Disconnect supplier service");
-            System.out.println("6. Reconnect supplier service");
-            System.out.println("7. Exit");
-            System.out.print("Select option: ");
-            
-            int choice = scanner.nextInt();
-            scanner.nextLine();
-            
-            switch (choice) {
-                case 1:
-                    Message paymentRequest = new Message("PAYMENT_REQUEST",
-                        "ACC001:100.50", "ClientApp");
-                    system.getMessageQueue().sendMessage("payment-requests", paymentRequest);
-                    break;
-                    
-                case 2:
-                    Message stockUpdate = new Message("STOCK_UPDATE",
-                        "P001:10", "ClientApp");
-                    system.getMessageQueue().sendMessage("stock-updates", stockUpdate);
-                    break;
-                    
-                case 3:
-                    system.simulateServiceDisconnection("bank", false);
-                    break;
-                    
-                case 4:
-                    system.simulateServiceDisconnection("bank", true);
-                    break;
-                    
-                case 5:
-                    system.simulateServiceDisconnection("supplier", false);
-                    break;
-                    
-                case 6:
-                    system.simulateServiceDisconnection("supplier", true);
-                    break;
-                    
-                case 7:
-                    system.shutdown();
-                    return;
+        try (// Simulate operations
+        Scanner scanner = new Scanner(System.in)) {
+            while (true) {
+                System.out.println("\n--- Async System Control ---");
+                System.out.println("1. Send payment request");
+                System.out.println("2. Update stock");
+                System.out.println("3. Disconnect bank service");
+                System.out.println("4. Reconnect bank service");
+                System.out.println("5. Disconnect supplier service");
+                System.out.println("6. Reconnect supplier service");
+                System.out.println("7. Exit");
+                System.out.print("Select option: ");
+                
+                int choice = scanner.nextInt();
+                scanner.nextLine();
+                
+                switch (choice) {
+                    case 1:
+                        Message paymentRequest = new Message("PAYMENT_REQUEST",
+                            "ACC001:100.50", "ClientApp");
+                        system.getMessageQueue().sendMessage("payment-requests", paymentRequest);
+                        break;
+                        
+                    case 2:
+                        Message stockUpdate = new Message("STOCK_UPDATE",
+                            "P001:10", "ClientApp");
+                        system.getMessageQueue().sendMessage("stock-updates", stockUpdate);
+                        break;
+                        
+                    case 3:
+                        system.simulateServiceDisconnection("bank", false);
+                        break;
+                        
+                    case 4:
+                        system.simulateServiceDisconnection("bank", true);
+                        break;
+                        
+                    case 5:
+                        system.simulateServiceDisconnection("supplier", false);
+                        break;
+                        
+                    case 6:
+                        system.simulateServiceDisconnection("supplier", true);
+                        break;
+                        
+                    case 7:
+                        system.shutdown();
+                        return;
+                }
             }
         }
     }
